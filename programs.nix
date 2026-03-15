@@ -64,10 +64,9 @@
      tauon
      ninja
      kdePackages.ark
-     blender
      helix
      unar
-     appflowey
+     appflowy
      obsidian
      qview
      radeontop
