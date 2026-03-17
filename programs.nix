@@ -64,6 +64,7 @@
      tauon
      ninja
      kdePackages.ark
+     chromium
      helix
      unar
      appflowy
