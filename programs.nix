@@ -63,6 +63,7 @@
      cmake
      tauon
      ninja
+     android-tools
      kdePackages.ark
      chromium
      helix
