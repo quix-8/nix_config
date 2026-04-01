@@ -64,6 +64,7 @@
      tauon
      ninja
      android-tools
+     qbittorrent-enhanced
      kdePackages.ark
      chromium
      helix
