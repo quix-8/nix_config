@@ -57,7 +57,7 @@
     libreoffice-qt
     obsidian
     qbittorrent-enhanced
-  ]
+  ];
 
   environment.systemPackages = with pkgs; [
      vim 
