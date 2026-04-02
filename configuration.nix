@@ -11,19 +11,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # hardware.firmware = [
-  #   (pkgs.runCommand "hda-jack-retask-firmware" {} ''
-  #     mkdir -p $out/lib/firmware
-  #     # Используем \${./...} — это заставит Nix скопировать файл в Store
-  #     # и подставить сюда правильный длинный путь (/nix/store/...)
-  #     cp ${./hda-jack-retask.fw} $out/lib/firmware/
-  #   '')
-  # ];
-
-  # boot.extraModprobeConfig = ''
-  #   options snd-hda-intel patch=hda-jack-retask.fw
-  # '';
-
   networking.hostName = "pc";
   networking.networkmanager.enable = true;
 
@@ -47,16 +34,6 @@
      pulse.enable = true;
    };
 
-  #programs.obs-studio.enable = false;
-
-  # programs.nix-ld = {
-  #   enable = true;
-  #   libraries = with pkgs; [
-  #     stdenv.cc.cc
-  #     zlib
-  #   ];
-  # };
-
   zramSwap = {
     enable = true;
     algorithm = "zstd";
@@ -75,9 +52,6 @@
    users.users.quix_ = {
      isNormalUser = true;
      extraGroups = [ "wheel" ];
-     packages = with pkgs; [
-       tree
-     ];
    };
   
   users.defaultUserShell = pkgs.bash;
@@ -91,8 +65,6 @@
     enable = true;
     allowedTCPPorts = [ 80 443 22 ];
   };
-  # networking.nameservers = [ "176.99.11.77" ];
-
 
   system.stateVersion = "25.05"; 
 

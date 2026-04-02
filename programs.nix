@@ -3,7 +3,7 @@
 {
   services.openssh = {
     enable = true;
-    settings.PermitRootLogin = "yes";
+    settings.PermitRootLogin = "no";
   };
   programs.vscode = {
     enable = true;
@@ -44,38 +44,43 @@
   programs.steam.enable = true;
   programs.firefox.enable = true;
 
+  users.users.quix_.packages = with pkgs; [
+    tree
+    discord
+    telegram-desktop
+    lutris
+    zoom-us
+    prismlauncher
+    tauon
+    appflowy
+    chromium
+    libreoffice-qt
+    obsidian
+    qbittorrent-enhanced
+  ]
+
   environment.systemPackages = with pkgs; [
      vim 
      wget
      curl
-     git
-     discord 
-     telegram-desktop
+     git   
      pavucontrol
      btop
      fastfetch
-     lutris
      alsa-tools
-     zoom-us
-     prismlauncher
      clang
      clang-tools
      cmake
-     tauon
      ninja
      android-tools
-     qbittorrent-enhanced
      kdePackages.ark
-     chromium
      helix
      unar
-     appflowy
-     obsidian
      qview
      radeontop
-     libreoffice-qt
      protonup-qt
   ];
+  
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
