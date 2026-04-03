@@ -57,6 +57,7 @@
     libreoffice-qt
     obsidian
     qbittorrent-enhanced
+    mpv
   ];
 
   environment.systemPackages = with pkgs; [
