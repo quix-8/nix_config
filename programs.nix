@@ -46,6 +46,7 @@
     enable = true;
     openFirewall = true; # Открывает порт 8096
   };
+  users.users.jellyfin.extraGroups = [ "users" ];
 
   programs.steam.enable = true;
   programs.firefox.enable = true;
