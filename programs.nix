@@ -41,6 +41,12 @@
       nxsh = "nix-shell .";
     };
   };
+
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true; # Открывает порт 8096
+  };
+
   programs.steam.enable = true;
   programs.firefox.enable = true;
 
