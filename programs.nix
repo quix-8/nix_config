@@ -42,6 +42,8 @@
     };
   };
 
+  services.ollama.enable = true;
+
   services.jellyfin = {
     enable = true;
     openFirewall = true; # Открывает порт 8096
