@@ -65,6 +65,7 @@
     chromium
     libreoffice-qt
     obsidian
+    spotify
     qbittorrent-enhanced
     mpv
   ];

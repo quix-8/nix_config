@@ -42,13 +42,7 @@
 
   hardware.amdgpu.opencl.enable = true; 
   hardware.graphics.enable32Bit = true;
-  hardware.graphics.extraPackages = with pkgs; [
-    amdvlk
-  ];
-  # For 32 bit applications 
-  hardware.graphics.extraPackages32 = with pkgs; [
-    driversi686Linux.amdvlk
-  ];
+
   systemd.tmpfiles.rules = [
     "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
   ];
