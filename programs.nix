@@ -68,6 +68,10 @@
     spotify
     qbittorrent-enhanced
     abcde
+    cdparanoia
+    flac
+    cddiscid
+    krita
     mpv
   ];
 
