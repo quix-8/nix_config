@@ -67,6 +67,7 @@
     obsidian
     spotify
     qbittorrent-enhanced
+    abcde
     mpv
   ];
 
