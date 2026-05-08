@@ -19,6 +19,7 @@
       davidanson.vscode-markdownlint
       ms-python.python
       ms-python.debugpy
+      catppuccin.catppuccin-vsc
     ];
   };
   programs.kdeconnect.enable = true;
