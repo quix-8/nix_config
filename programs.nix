@@ -96,6 +96,7 @@
      qview
      radeontop
      protonup-qt
+     v2ray
   ];
   
   fonts.packages = with pkgs; [
