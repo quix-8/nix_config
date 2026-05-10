@@ -43,7 +43,7 @@
     };
   };
 
-  services.ollama.enable = true;
+  # services.ollama.enable = true;
 
   services.jellyfin = {
     enable = true;
