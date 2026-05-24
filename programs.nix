@@ -22,6 +22,9 @@
       catppuccin.catppuccin-vsc
     ];
   };
+
+  virtualisation.docker.enable = true;
+
   programs.kdeconnect.enable = true;
   programs.bash = {
     enable = true;
