@@ -59,6 +59,7 @@
 
   users.users.quix_.packages = with pkgs; [
     tree
+    audiorelay
     discord
     telegram-desktop
     lutris
