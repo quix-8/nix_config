@@ -62,11 +62,11 @@
     discord
     telegram-desktop
     lutris
-    zoom-us
     prismlauncher
     tauon
     appflowy
     chromium
+    flclash
     libreoffice-qt
     obsidian
     spotify
