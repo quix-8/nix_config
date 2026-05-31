@@ -40,6 +40,21 @@
     memoryPercent = 50;
   };
 
+  nix.settings = {
+    # Список зеркал. Nix будет пытаться скачать пакеты по порядку.
+    substituters = [
+      "https://mirrors.ustc.edu.cn/nix-channels/store"
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+      "https://cache.nixos.org" # Оригинал оставляем в конце в качестве фоллбэка
+    ];
+
+    # Если кэш недоступен, фоллбэчимся на сборку из исходников (или следующие зеркала)
+    fallback = true;
+
+    # Снижаем тайм-аут подключения, чтобы Nix не висел вечность на мертвом зеркале
+    connect-timeout = 5;
+  };
+
   hardware.amdgpu.opencl.enable = true; 
   hardware.graphics.enable32Bit = true;
 
