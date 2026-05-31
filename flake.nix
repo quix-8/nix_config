@@ -14,7 +14,7 @@
 				./configuration.nix
 				zapret-discord-youtube.nixosModules.default{
           				services.zapret-discord-youtube = {
-            					enable = true;
+            					enable = false;
             					configName = "general (SIMPLE FAKE)"; 
           				};
 				}
