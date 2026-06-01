@@ -54,6 +54,8 @@
   };
   users.users.jellyfin.extraGroups = [ "users" ];
 
+  programs.amnezia-vpn.enable = true;
+
   programs.steam.enable = true;
   programs.firefox.enable = true;
 
@@ -80,7 +82,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-     amnezia-vpn
      vim 
      wget
      curl
