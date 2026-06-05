@@ -2,7 +2,7 @@
 	description = "Nixos desktop";
 
 	inputs = {
-		nixpkgs.url = "nixpkgs/nixos-25.11";
+		nixpkgs.url = "nixpkgs/nixos-26.05";
 		zapret-discord-youtube.url = "github:kartavkun/zapret-discord-youtube";
 
 	};
