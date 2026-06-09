@@ -44,8 +44,8 @@
     # Список зеркал. Nix будет пытаться скачать пакеты по порядку.
     substituters = [
       "https://cache.nixos.org"
-      "https://mirrors.ustc.edu.cn/nix-channels/store"
-      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+      # "https://mirrors.ustc.edu.cn/nix-channels/store"
+      # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
     ];
 
     # Если кэш недоступен, фоллбэчимся на сборку из исходников (или следующие зеркала)
