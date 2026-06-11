@@ -79,6 +79,7 @@
     cddiscid
     krita
     mpv
+    nicotine-plus
   ];
 
   environment.systemPackages = with pkgs; [
