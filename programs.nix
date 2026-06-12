@@ -94,6 +94,7 @@
 
     zed-editor
     nixd
+    nil
     rust-analyzer
   ];
 
