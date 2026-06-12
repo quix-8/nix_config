@@ -6,23 +6,6 @@
 }:
 {
   programs = {
-    vscode = {
-      enable = true;
-      extensions = with pkgs.vscode-extensions; [
-        jnoortheen.nix-ide
-        github.github-vscode-theme
-        ms-vscode.cpptools-extension-pack
-        twxs.cmake
-        ms-vscode.cmake-tools
-        pkief.material-icon-theme
-        jdinhlife.gruvbox
-        rust-lang.rust-analyzer
-        davidanson.vscode-markdownlint
-        ms-python.python
-        ms-python.debugpy
-        catppuccin.catppuccin-vsc
-      ];
-    };
     direnv = {
       enable = true;
       nix-direnv.enable = true;
