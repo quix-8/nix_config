@@ -5,19 +5,19 @@
   ...
 }: {
   programs = {
-    zed-editor = {
-      enable = true;
-      extensions = [ "nix" "toml" "rust" ];
-      userSettings = {
-        theme = {
-          mode = "system";
-          dark = "One Dark";
-          light = "One Light";
-        };
-        hour_format = "hour24";
-        vim_mode = false;
-      };
-    };
+    # zed-editor = {
+    #   enable = true;
+    #   extensions = [ "nix" "toml" "rust" ];
+    #   userSettings = {
+    #     theme = {
+    #       mode = "system";
+    #       dark = "One Dark";
+    #       light = "One Light";
+    #     };
+    #     hour_format = "hour24";
+    #     vim_mode = false;
+    #   };
+    # };
     vscode = {
       enable = true;
       extensions = with pkgs.vscode-extensions; [
@@ -64,6 +64,7 @@
   users.users = {
     jellyfin.extraGroups = ["users"];
     quix_.packages = with pkgs; [
+      zed-editor-fhs
       tree
       discord
       telegram-desktop
