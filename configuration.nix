@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ./programs.nix
@@ -22,7 +23,11 @@
     networkmanager.enable = true;
     firewall = {
       enable = true;
-      allowedTCPPorts = [80 443 22];
+      allowedTCPPorts = [
+        80
+        443
+        22
+      ];
     };
   };
 
@@ -30,7 +35,10 @@
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
-    supportedLocales = ["en_US.UTF-8/UTF-8" "ru_RU.UTF-8/UTF-8"];
+    supportedLocales = [
+      "en_US.UTF-8/UTF-8"
+      "ru_RU.UTF-8/UTF-8"
+    ];
   };
 
   services = {
@@ -62,7 +70,10 @@
     ];
     fallback = true;
     connect-timeout = 5;
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   hardware.graphics = {
@@ -73,7 +84,7 @@
     ];
   };
   environment = {
-    shells = with pkgs; [bash];
+    shells = with pkgs; [ bash ];
     variables = {
       HIP_PATH = "${pkgs.rocmPackages.clr}";
     };
@@ -86,7 +97,7 @@
       quix_ = {
         isNormalUser = true;
         shell = pkgs.fish;
-        extraGroups = ["wheel"];
+        extraGroups = [ "wheel" ];
       };
       root = {
         shell = pkgs.fish;

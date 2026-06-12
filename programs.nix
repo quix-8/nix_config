@@ -6,6 +6,14 @@
 }:
 {
   programs = {
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        stdenv.cc.cc
+        zlib
+        openssl
+      ];
+    };
     direnv = {
       enable = true;
       nix-direnv.enable = true;
