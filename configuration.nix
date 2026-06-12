@@ -73,7 +73,7 @@
   users.defaultUserShell = pkgs.bash;
   environment.shells = with pkgs; [ bash ];
 
-  documentation.man.generateCaches = false;
+  documentation.man.cache.enable = false;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
