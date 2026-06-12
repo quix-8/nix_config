@@ -1,0 +1,16 @@
+{
+  "eval": {
+    "target": {
+      "args": [],
+      "installable": ".#nixosConfigurations.pc.config"
+    }
+  },
+  "formatting": {
+    "command": ["alejandra"]
+  },
+  "options": {
+    "nixos": {
+      "expr": "(builtins.getFlake (toString ./.)).nixosConfigurations.pc.options"
+    }
+  }
+}
