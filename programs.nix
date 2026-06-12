@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   programs = {
     vscode = {
       enable = true;
@@ -21,6 +22,10 @@
         ms-python.debugpy
         catppuccin.catppuccin-vsc
       ];
+    };
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
     };
     kdeconnect.enable = true;
     fish = {
@@ -49,7 +54,7 @@
   };
 
   users.users = {
-    jellyfin.extraGroups = ["users"];
+    jellyfin.extraGroups = [ "users" ];
     quix_.packages = with pkgs; [
       tree
       discord
