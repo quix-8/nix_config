@@ -23,19 +23,7 @@
     ];
   };
 
-  virtualisation.docker.enable = true;
-
   programs.kdeconnect.enable = true;
-  # programs.bash = {
-  #   enable = true;
-  #   interactiveShellInit = ''
-  #   if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-  #   then
-  #     shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-  #     exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-  #   fi
-  # '';
-  # };
   programs.fish = {
     enable = true;
     shellAliases = {
@@ -46,16 +34,13 @@
     };
   };
 
-  # services.ollama.enable = true;
-
   services.jellyfin = {
     enable = true;
-    openFirewall = true; # Открывает порт 8096
+    openFirewall = true;
   };
   users.users.jellyfin.extraGroups = [ "users" ];
 
   programs.amnezia-vpn.enable = true;
-
   programs.steam.enable = true;
   programs.firefox.enable = true;
 
@@ -63,10 +48,8 @@
     tree
     discord
     telegram-desktop
-    lutris
     prismlauncher
     tauon
-    appflowy
     chromium
     flclash
     libreoffice-qt
@@ -100,7 +83,6 @@
      helix
      unar
      qview
-     radeontop
      protonup-qt
   ];
   

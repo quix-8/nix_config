@@ -63,11 +63,15 @@
 
   nixpkgs.config.allowUnfree = true;
 
-   users.users.quix_ = {
-     isNormalUser = true;
-     shell = pkgs.fish;
-     extraGroups = [ "wheel" ];
-   };
+  users.users.quix_ = {
+    isNormalUser = true;
+    shell = pkgs.fish;
+    extraGroups = [ "wheel" ];
+  };
+
+  users.users.root = {
+    shell = pkgs.fish;
+  };
   
   users.defaultUserShell = pkgs.bash;
   environment.shells = with pkgs; [ bash ];
