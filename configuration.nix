@@ -41,32 +41,31 @@
   };
 
   nix.settings = {
-    # Список зеркал. Nix будет пытаться скачать пакеты по порядку.
     substituters = [
       "https://cache.nixos.org"
       # "https://mirrors.ustc.edu.cn/nix-channels/store"
       # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
     ];
-
-    # Если кэш недоступен, фоллбэчимся на сборку из исходников (или следующие зеркала)
     fallback = true;
-
-    # Снижаем тайм-аут подключения, чтобы Nix не висел вечность на мертвом зеркале
     connect-timeout = 5;
   };
-
-  hardware.amdgpu.opencl.enable = true; 
-  hardware.graphics.enable32Bit = true;
-
-  systemd.tmpfiles.rules = [
-    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-  ];
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+    ];
+  };
+  environment.variables = {
+    HIP_PATH = "${pkgs.rocmPackages.clr}";
+  };
 
 
   nixpkgs.config.allowUnfree = true;
 
    users.users.quix_ = {
      isNormalUser = true;
+     shell = pkgs.fish;
      extraGroups = [ "wheel" ];
    };
   
