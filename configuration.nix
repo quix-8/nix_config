@@ -1,18 +1,27 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ 
-      ./hardware-configuration.nix
-      ./programs.nix
-    ];
+  imports = [ 
+    ./hardware-configuration.nix
+    ./programs.nix
+  ];
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_zen;
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+  };
 
-  networking.hostName = "pc";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "pc";
+    networkmanager.enable = true;
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 80 443 22 ];
+    };
+  };
 
   time.timeZone = "Europe/Moscow";
 
@@ -20,19 +29,21 @@
     defaultLocale = "en_US.UTF-8";
     supportedLocales = [ "en_US.UTF-8/UTF-8" "ru_RU.UTF-8/UTF-8" ];
   };
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
-  services.desktopManager.plasma6.enable = true;
-  services.earlyoom.enable = true;
 
-  services.printing.enable = true;
-  services.pipewire = {
-     enable = true;
-     audio.enable = true;
-     pulse.enable = true;
-   };
+  services = {
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+    desktopManager.plasma6.enable = true;
+    earlyoom.enable = true;
+    printing.enable = true;
+    pipewire = {
+      enable = true;
+      audio.enable = true;
+      pulse.enable = true;
+    };
+  };
 
   zramSwap = {
     enable = true;
@@ -48,7 +59,9 @@
     ];
     fallback = true;
     connect-timeout = 5;
+    experimental-features = [ "nix-command" "flakes" ];
   };
+
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -56,34 +69,30 @@
       rocmPackages.clr.icd
     ];
   };
-  environment.variables = {
-    HIP_PATH = "${pkgs.rocmPackages.clr}";
+  environment = {
+    shells = with pkgs; [ bash ];
+    variables = {
+      HIP_PATH = "${pkgs.rocmPackages.clr}";
+    };
   };
 
 
   nixpkgs.config.allowUnfree = true;
 
-  users.users.quix_ = {
-    isNormalUser = true;
-    shell = pkgs.fish;
-    extraGroups = [ "wheel" ];
+  users = {
+    users = {
+      quix_ = {
+        isNormalUser = true;
+        shell = pkgs.fish;
+        extraGroups = [ "wheel" ];
+      };
+      root = {
+        shell = pkgs.fish;
+      };
+    };
   };
-
-  users.users.root = {
-    shell = pkgs.fish;
-  };
-  
-  users.defaultUserShell = pkgs.bash;
-  environment.shells = with pkgs; [ bash ];
 
   documentation.man.cache.enable = false;
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 80 443 22 ];
-  };
 
   system.stateVersion = "25.05"; 
 
