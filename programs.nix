@@ -88,7 +88,7 @@
     qview
     protonup-qt
     pkgsRocm.blender
-    blender
+    blender-bin
 
     zed-editor
     nixd
